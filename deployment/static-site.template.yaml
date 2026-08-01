@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Placeholder static hosting template for a self-hosted workbench shell
+Description: Placeholder static hosting template for a self-hosted studio shell
 
 Parameters:
   SiteBucketName:
