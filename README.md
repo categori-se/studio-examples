@@ -1,6 +1,6 @@
-# Workbench Examples
+# Studio Examples
 
-Safe local demos and self-hosting templates for the public Workbench packages.
+Safe local demos and self-hosting templates for the public Studio packages.
 
 Run the deterministic local example after installing the workspace dependencies:
 

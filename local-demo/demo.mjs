@@ -1,8 +1,8 @@
 import project from "./project.json" with {type: "json"};
-import {createLocalWorkbench, createMockProvider} from "@categori/workbench-core";
+import {createLocalStudio, createMockProvider} from "@categori/studio-core";
 
-const workbench = createLocalWorkbench({projects: [project], provider: createMockProvider()});
-const result = await workbench.run({
+const studio = createLocalStudio({projects: [project], provider: createMockProvider()});
+const result = await studio.run({
   capability: "plan",
   projectId: project.id,
   modelPolicy: project.modelPolicy,
