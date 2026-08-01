@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "local-demo",
+  "name": "Local demo",
+  "repository": "example/local-demo",
+  "defaultBranch": "main",
+  "dataSensitivity": "internal",
+  "commands": {
+    "checks": []
+  },
+  "modelPolicy": {
+    "mode": "local_only"
+  }
+}

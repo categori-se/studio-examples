@@ -1,0 +1,18 @@
+{
+  "name": "@categori/workbench-examples",
+  "version": "0.1.0",
+  "description": "Local demos and placeholder deployment templates for Workbench Core",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@categori/workbench-contracts": "0.1.0",
+    "@categori/workbench-core": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
