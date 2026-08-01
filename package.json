@@ -1,6 +1,6 @@
 {
   "name": "@categori/studio-examples",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Local demos and placeholder deployment templates for Studio Core",
   "private": true,
   "type": "module",
@@ -9,10 +9,10 @@
     "test": "node --test test/*.test.js"
   },
   "dependencies": {
-    "@categori/studio-contracts": "0.2.0",
-    "@categori/studio-core": "0.2.0"
+    "@categori/studio-contracts": "0.3.0",
+    "@categori/studio-core": "0.3.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=24"
   }
 }
