@@ -1,0 +1,123 @@
+name: Publish tagged demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Immutable Studio Examples release tag
+        required: true
+        default: v0.4.0
+        type: string
+      release_sha:
+        description: Exact 40-character commit SHA resolved by the release tag
+        required: true
+        type: string
+
+permissions: {}
+
+concurrency:
+  group: studio-examples-pages
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Verify immutable release
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Validate dispatch boundary
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+          RELEASE_SHA: ${{ inputs.release_sha }}
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REPOSITORY" = "categori-se/studio-examples"
+          test "$GITHUB_REF" = "refs/heads/main"
+          [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          [[ "$RELEASE_SHA" =~ ^[0-9a-f]{40}$ ]]
+
+      - name: Check out exact release revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.release_sha }}
+          fetch-depth: 0
+          path: release
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Verify tag, SHA, and main ancestry
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+          RELEASE_SHA: ${{ inputs.release_sha }}
+        run: |
+          set -euo pipefail
+          git -C release fetch --force --no-tags origin "+refs/heads/main:refs/remotes/origin/main"
+          git -C release fetch --force --no-tags origin "+refs/tags/${RELEASE_TAG}:refs/tags/${RELEASE_TAG}"
+          test "$(git -C release rev-parse HEAD)" = "$RELEASE_SHA"
+          test "$(git -C release rev-parse "${RELEASE_TAG}^{commit}")" = "$RELEASE_SHA"
+          git -C release merge-base --is-ancestor "$RELEASE_SHA" refs/remotes/origin/main
+          test "$(node -p "require('./release/package.json').version")" = "${RELEASE_TAG#v}"
+
+      - name: Scan complete public tree
+        run: node release/scripts/check-public-tree.mjs
+
+      - name: Verify release-bound demo provenance
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: node release/scripts/verify-demo-assets.mjs --tag "$RELEASE_TAG"
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0, node24
+
+      - name: Upload exact demo artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0; nests upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f v7.0.0/node24
+        with:
+          path: release/docs
+          retention-days: 1
+
+  deploy:
+    name: Deploy and verify GitHub Pages
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      id-token: write
+      pages: write
+    steps:
+      - name: Deploy exact artifact
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0, node24
+
+      - name: Check out exact release revision for verification
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.release_sha }}
+          path: release
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Verify every served asset
+        env:
+          PAGES_URL: ${{ steps.deployment.outputs.page_url }}
+          RELEASE_SHA: ${{ inputs.release_sha }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: >-
+          node release/scripts/verify-demo-assets.mjs
+          --tag "$RELEASE_TAG"
+          --sha "$RELEASE_SHA"
+          --url "$PAGES_URL"

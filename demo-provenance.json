@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "repository": "categori-se/studio-examples",
+  "tag": "v0.4.0",
+  "version": "0.4.0",
+  "source_path": "docs",
+  "source_url": "https://github.com/categori-se/studio-examples/tree/v0.4.0/docs",
+  "files": {
+    ".nojekyll": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app.js": "sha256:744be41c40ba59701a123c5bf6544930a2d80afc692750acaeaf5cbef4581885",
+    "demo-model.js": "sha256:197e7493f3ec88d94a4c42b4833ba550825d7d43adddf7e3987bea69f1705cc0",
+    "favicon.svg": "sha256:b2262e38d233da58067917fb2da3adf0a0894f77d4846b7b3c2e3c60810d3f25",
+    "index.html": "sha256:6063a65af01213a4da2bbf24f77a7962fecf096ebd53e285e5fe58db629c5a9f",
+    "styles.css": "sha256:a8ee47d983668c9f7729129a0e3f16e0f380aea3ea2d71a56cd84a7d93e67d12"
+  }
+}

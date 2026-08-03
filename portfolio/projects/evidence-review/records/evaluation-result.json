@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "evaluation_id": "123e4567-e89b-42d3-a456-4266aa1740ef",
+  "project_id": "evidence-review",
+  "question": "Does the fictional planning record support the bounded field-review shortlist while retaining the accessibility evidence gap?",
+  "document_manifest_sha256": "b828dcc466d3c4dc5b0849d0da1ef68886b739ec7dd09fa2eece3ac5de145958",
+  "rubric": {
+    "id": "evidence-quality",
+    "version": "1.0.0",
+    "sha256": "78405b377d1f78c50d6a21b9b02a4c8729a0b26892244d669b16dc2b2959db5a"
+  },
+  "provider": {
+    "id": "deterministic-fixture",
+    "model_id": "rule-based-evidence-fixture-v1"
+  },
+  "summary": "The declared record supports advancing North District to field review and requires River Ward to remain qualified by the missing accessibility inspection.",
+  "criteria": [
+    {
+      "criterion_id": "finding-traceability",
+      "score": 4.5,
+      "confidence": 0.91,
+      "rationale": "Both parts of the bounded finding have direct citations to the one declared document.",
+      "citations": [
+        {
+          "document_id": "synthetic-service-record",
+          "chunk_id": "public-guidance:north-district",
+          "locator": "paragraph-3:sentence-2",
+          "chunk_sha256": "fbc8af4934e24d0543379ae14a6481f34357c2cd0ad4935167fafe2446271280",
+          "excerpt": "North District has a complete usage extract and readiness checklist."
+        }
+      ]
+    },
+    {
+      "criterion_id": "scope-discipline",
+      "score": 4.25,
+      "confidence": 0.88,
+      "rationale": "The result carries the accessibility gap forward and does not infer prioritization or funding approval.",
+      "citations": [
+        {
+          "document_id": "synthetic-service-record",
+          "chunk_id": "public-guidance:river-ward",
+          "locator": "paragraph-3:sentence-3",
+          "chunk_sha256": "945bb7696fc32cf8bcdb18301dbe8b766f22f13ca5a8e31ad363331d527d9f45",
+          "excerpt": "River Ward is missing one accessibility inspection."
+        }
+      ]
+    }
+  ],
+  "score": 4.4,
+  "passing_score": 4,
+  "machine_outcome": "passed",
+  "human_review": {
+    "required": true,
+    "status": "pending"
+  },
+  "completed_at": "2026-08-01T18:00:00Z"
+}

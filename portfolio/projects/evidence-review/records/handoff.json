@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "project_id": "evidence-review",
+  "status": "verified",
+  "access": "read_only",
+  "recipient_role": "Synthetic regional committee reviewer",
+  "scope": "Fictional field-review shortlist with the River Ward accessibility qualification retained",
+  "review_decision": {
+    "uri": "https://example.invalid/studio-examples/evidence-review/review-decision.json",
+    "sha256": "1190cb08df898a1cddbfba39b5e2eb86db1c5f2e8630c6324c83b33e74e88403"
+  },
+  "release_record": {
+    "uri": "https://example.invalid/studio-examples/evidence-review/release-record.json",
+    "sha256": "31455885756d81cc78bca44062507195bca97f5dc9001c87a3a89b962bd64122"
+  },
+  "delivered_at": "2026-08-01T18:15:00Z"
+}

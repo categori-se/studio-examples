@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A dependency-free reference demo for tracing governed, AI-assisted expert work from declared evidence to human decision and exact handoff.">
+    <meta name="color-scheme" content="light">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'none'; media-src 'none'; object-src 'none'; worker-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'">
+    <title>Studio · Governed expert-work reference demo</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" type="module"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to the demo</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Studio demo home">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span>
+          <strong>Studio</strong>
+          <small>Open reference demo</small>
+        </span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#record">The record</a>
+        <a href="#demo-boundaries">Boundaries</a>
+        <a href="#architecture">Architecture</a>
+        <a class="nav-repo" href="https://github.com/categori-se/studio-examples/tree/v0.4.0/docs">View v0.4.0 source</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Governed expert work</p>
+          <h1 id="hero-title">Keep evidence, AI assistance, expert judgment, and handoff connected.</h1>
+          <p class="hero-lede">
+            This working reference shows a sector-neutral evidence-to-decision pattern through
+            clearly labeled synthetic examples in service planning, engineering assurance, and research. A bounded brief, declared sources, model
+            and tool policy, evaluation, accountable judgment, exact release, and handoff remain
+            inspectable instead of disappearing inside a chat transcript.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#portfolio">Explore the portfolio</a>
+            <a class="button button-secondary" href="#use-it">Run it yourself</a>
+          </div>
+          <p class="privacy-note">
+            <span aria-hidden="true">●</span> Synthetic data only · runs entirely in this browser · no API, analytics, or telemetry calls after static assets load
+          </p>
+        </div>
+        <div class="hero-visual" aria-label="A miniature evidence-to-decision and handoff record">
+          <div class="signal-card signal-source">
+            <span class="signal-icon" aria-hidden="true">B</span>
+            <span><small>Expert brief</small><strong>Question and audience bounded</strong></span>
+          </div>
+          <div class="signal-line" aria-hidden="true"></div>
+          <div class="signal-card signal-review">
+            <span class="signal-icon" aria-hidden="true">D</span>
+            <span><small>Expert decision</small><strong>Qualified review required</strong></span>
+          </div>
+          <div class="signal-line signal-line-muted" aria-hidden="true"></div>
+          <div class="signal-card signal-release">
+            <span class="signal-icon" aria-hidden="true">H</span>
+            <span><small>Exact release + handoff</small><strong>Verified only when digest-bound</strong></span>
+          </div>
+          <div class="visual-caption">Missing information stays visible. A status flag is not an evidence chain.</div>
+        </div>
+      </section>
+
+      <section class="demo-boundaries" id="demo-boundaries" aria-labelledby="demo-boundaries-title">
+        <div class="section-heading narrow-heading">
+          <div>
+            <p class="eyebrow">What this public surface can—and cannot—do</p>
+            <h2 id="demo-boundaries-title">Explore the method without opening an operating path</h2>
+          </div>
+          <p>Each information control explains a feature or a technical boundary. These controls expand local page content only.</p>
+        </div>
+        <div class="boundary-info-grid">
+          <details class="boundary-info">
+            <summary><span class="info-icon" aria-hidden="true">i</span><span><strong>Evidence-connected findings</strong><small>See the product value</small></span></summary>
+            <p>Every material finding names declared sources, preserves qualifications, and remains separate from the accountable expert's decision.</p>
+          </details>
+          <details class="boundary-info">
+            <summary><span class="info-icon" aria-hidden="true">i</span><span><strong>Synthetic public records</strong><small>Safe to inspect and reuse</small></span></summary>
+            <p>The examples are fictional and contain no client data, private repository metadata, account identifiers, credentials, or production evidence.</p>
+          </details>
+          <details class="boundary-info">
+            <summary><span class="info-icon" aria-hidden="true">i</span><span><strong>No operating permissions</strong><small>Read-only by construction</small></span></summary>
+            <p>There is no API, login token, upload, model call, runner, EC2 or Batch start, repository write, approval, release, deployment, or cache-invalidation action in this demo.</p>
+          </details>
+          <details class="boundary-info">
+            <summary><span class="info-icon" aria-hidden="true">i</span><span><strong>Static cost envelope</strong><small>128 KiB packaged ceiling</small></span></summary>
+            <p>The build fails if this complete static demo exceeds 128 KiB. Cached file delivery is designed to remain far below $0.10 for an ordinary visitor-day; anonymous traffic cannot support a hard per-person billing guarantee.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="demo-shell" id="portfolio" aria-labelledby="portfolio-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Reference portfolio · synthetic and cross-domain</p>
+            <h2 id="portfolio-title">Three expert contexts, three honest states</h2>
+          </div>
+          <p>Select a fictional review to inspect its current record. The scenario demonstrates the general governance pattern; it does not assess a real project, client, standard, or compliance outcome.</p>
+        </div>
+
+        <div class="portfolio-summary" aria-label="Portfolio summary">
+          <div><strong id="metric-projects">3</strong><span>Projects</span></div>
+          <div><strong id="metric-reviews">1</strong><span>Decision waiting</span></div>
+          <div><strong id="metric-releases">1</strong><span>Contract-bound release</span></div>
+          <div><strong id="metric-gaps">2</strong><span>Records with gaps</span></div>
+        </div>
+
+        <div class="project-layout">
+          <aside class="project-picker" aria-labelledby="project-picker-title">
+            <div class="picker-heading">
+              <h3 id="project-picker-title">Governed projects</h3>
+              <span>3 total</span>
+            </div>
+            <div id="project-list" class="project-list" role="list"></div>
+            <div class="picker-key" aria-label="Status key">
+              <span><i class="dot dot-ready"></i> complete</span>
+              <span><i class="dot dot-pending"></i> waiting</span>
+              <span><i class="dot dot-missing"></i> missing</span>
+            </div>
+          </aside>
+
+          <article class="dossier" aria-labelledby="project-title">
+            <header class="dossier-header">
+              <div>
+                <div class="project-state-line">
+                  <span id="project-state" class="status-pill"></span>
+                  <span id="project-id" class="mono"></span>
+                </div>
+                <h3 id="project-title"></h3>
+                <p id="project-summary"></p>
+              </div>
+              <button class="manifest-shortcut" type="button" data-open-tab="manifest">
+                <span aria-hidden="true">{ }</span> Inspect manifest
+              </button>
+            </header>
+
+            <dl class="project-facts" id="project-facts"></dl>
+
+            <div id="project-notice" class="project-notice" role="status" aria-live="polite"></div>
+
+            <section class="review-brief" aria-labelledby="brief-heading">
+              <div>
+                <p class="eyebrow">Synthetic review brief</p>
+                <h4 id="brief-heading">The question constrains the work</h4>
+              </div>
+              <blockquote id="brief-question"></blockquote>
+              <dl id="brief-facts" class="brief-facts"></dl>
+            </section>
+
+            <section class="lineage-section" id="record" aria-labelledby="lineage-title">
+              <div class="subheading">
+                <div>
+                  <p class="eyebrow">Review lineage</p>
+                  <h4 id="lineage-title">Brief to exact release and handoff</h4>
+                </div>
+                <p>Each transition names the record needed to support the next one.</p>
+              </div>
+              <ol id="lineage" class="lineage" tabindex="0" aria-label="Brief-to-handoff lineage; scroll horizontally on small screens"></ol>
+            </section>
+
+            <section class="intent-proof" aria-labelledby="intent-proof-title">
+              <div class="subheading compact">
+                <div>
+                  <p class="eyebrow">Intent versus proof</p>
+                  <h4 id="intent-proof-title">A configured target is not a verified release</h4>
+                </div>
+              </div>
+              <div class="comparison-grid">
+                <article class="record-card target-card">
+                  <div class="record-card-heading">
+                    <span class="record-symbol" aria-hidden="true">T</span>
+                    <div><small>Declared intent</small><h5>Deployment target</h5></div>
+                    <span id="target-status" class="mini-status"></span>
+                  </div>
+                  <dl id="target-record" class="record-fields"></dl>
+                </article>
+                <article class="record-card release-card">
+                  <div class="record-card-heading">
+                    <span class="record-symbol" aria-hidden="true">R</span>
+                  <div><small>Observed proof</small><h5>Immutable release record</h5></div>
+                    <span id="release-status" class="mini-status"></span>
+                  </div>
+                  <dl id="release-record" class="record-fields"></dl>
+                </article>
+              </div>
+              <p class="verification-note">“Contract-bound” means repository tests validate the public schemas and recompute every digest from document set through evaluation, expert decision, reviewed artifact, release record, and read-only handoff. This static browser also rejects inconsistent embedded bindings; a real system must additionally verify those bytes against its storage and release authority.</p>
+            </section>
+
+            <section class="inspect-section" aria-labelledby="inspect-title">
+              <div class="subheading">
+                <div>
+                  <p class="eyebrow">Portable records</p>
+                  <h4 id="inspect-title">Read what the system is allowed to assert</h4>
+                </div>
+                <p>These views are generated from the selected synthetic dossier.</p>
+              </div>
+              <div class="tab-list" role="tablist" aria-label="Project record views">
+                <button id="tab-evidence" type="button" role="tab" aria-selected="true" aria-controls="panel-evidence" data-tab="evidence">Findings map</button>
+                <button id="tab-manifest" type="button" role="tab" aria-selected="false" aria-controls="panel-manifest" data-tab="manifest" tabindex="-1">Manifest</button>
+                <button id="tab-rubric" type="button" role="tab" aria-selected="false" aria-controls="panel-rubric" data-tab="rubric" tabindex="-1">Evaluation rubric</button>
+              </div>
+              <div id="panel-evidence" class="tab-panel" role="tabpanel" aria-labelledby="tab-evidence">
+                <div class="evidence-grid" id="evidence-grid"></div>
+              </div>
+              <div id="panel-manifest" class="tab-panel" role="tabpanel" aria-labelledby="tab-manifest" hidden>
+                <div class="code-heading"><span>project.yaml</span><span>portable · provider-neutral</span></div>
+                <pre><code id="manifest-code"></code></pre>
+              </div>
+              <div id="panel-rubric" class="tab-panel" role="tabpanel" aria-labelledby="tab-rubric" hidden>
+                <div id="rubric-view" class="rubric-view"></div>
+              </div>
+            </section>
+          </article>
+        </div>
+      </section>
+
+      <section class="principles" aria-labelledby="principles-title">
+        <div class="section-heading narrow-heading">
+          <div>
+            <p class="eyebrow">A deliberately narrow job</p>
+            <h2 id="principles-title">Make expert findings reviewable</h2>
+          </div>
+          <p>This is not a chatbot or an automated professional verdict. It is a legible chain of evidence and judgment for an expert-led review.</p>
+        </div>
+        <div class="principle-grid">
+          <article>
+            <span class="principle-number">01</span>
+            <h3>Trace each finding</h3>
+            <p>Connect every material finding to declared evidence. Missing support and scope limits remain visible.</p>
+          </article>
+          <article>
+            <span class="principle-number">02</span>
+            <h3>Preserve the expert gate</h3>
+            <p>An evaluation can pass while a qualified domain specialist's decision is pending. The records never collapse those states.</p>
+          </article>
+          <article>
+            <span class="principle-number">03</span>
+            <h3>Prove the handoff</h3>
+            <p>The handoff names an approved finding set and an exact commit, artifact digest, workflow run, actor, time, and result.</p>
+          </article>
+        </div>
+        <p class="boundary-note">
+          The same record spine can support research synthesis, engineering assurance, policy review, due diligence, technical advisory work, or regulated document review. Each domain still owns its sources, terminology, rubric, professional qualifications, and final decision.
+        </p>
+      </section>
+
+      <section class="architecture" id="architecture" aria-labelledby="architecture-title">
+        <div class="section-heading narrow-heading">
+          <div>
+            <p class="eyebrow">Portable code and optional managed coordination</p>
+            <h2 id="architecture-title">Use the open model on its own</h2>
+          </div>
+          <p>The Apache-2.0 packages stand alone. A private service can coordinate the same contracts across teams when shared operations become useful.</p>
+        </div>
+
+        <div class="boundary-diagram">
+          <article class="boundary-card boundary-open">
+            <div class="boundary-label">Apache-2.0 · portable · complete example</div>
+            <h3>Run locally, adapt, or self-host</h3>
+            <p>Useful for researchers, engineers, analysts, reviewers, consultants, educators, and teams that want to operate their own expert-work record.</p>
+            <ul>
+              <li>Versioned project, workspace, document-evaluation, expert-decision, and release contracts</li>
+              <li>Local-first shell, CLI validation, plugin SDK, and safe mock provider</li>
+              <li>Inspectable briefs, source links, cited findings, rubrics, decisions, release records, and handoffs</li>
+              <li>Your repositories, infrastructure, identity, and provider choices</li>
+            </ul>
+          </article>
+          <div class="boundary-bridge" aria-hidden="true">
+            <span>same contracts</span>
+            <i></i>
+          </div>
+          <article class="boundary-card boundary-private">
+            <div class="boundary-label">Private service · optional</div>
+            <h3>Coordinate across a team</h3>
+            <p>Useful when several projects, reviewers, environments, or client handoffs need consistent policy and operational oversight.</p>
+            <h4>Available in the current control plane</h4>
+            <ul>
+              <li>Authenticated, owner-scoped project and evidence records</li>
+              <li>Connected repository/source inventory and bounded agent execution</li>
+              <li>Candidate review, append-only expert decisions, and audit context</li>
+              <li>Reviewed exact-SHA deployment requests while project CI remains the release authority</li>
+            </ul>
+            <h4>Planned managed operations</h4>
+            <ul>
+              <li>Encrypted connector custody and broader tenant administration</li>
+              <li>Aggregated evaluation, release, access, cost, billing, and production-observability views</li>
+            </ul>
+          </article>
+        </div>
+        <p class="boundary-note">
+          The public example is not a trial or a thin client: its contracts, local workflow, and synthetic records are usable without the private service.
+          The reusable product is the governance pattern, not the sector vocabulary in the reference portfolio.
+          Account-specific infrastructure, credentials, multi-tenant services, and proprietary execution policy remain outside the public packages.
+        </p>
+      </section>
+
+      <section class="use-it" id="use-it" aria-labelledby="use-it-title">
+        <div class="use-copy">
+          <p class="eyebrow">Try the Apache-2.0 model</p>
+          <h2 id="use-it-title">Start with one bounded expert question</h2>
+          <p>
+            Clone the examples, validate the fictional cross-domain reference portfolio, and adapt its manifest, rubric, evidence, and roles to your domain.
+            Keep the governance spine intact: what the brief asks, what the sources support, what the model may do, who may decide, and what would count as a handoff.
+          </p>
+          <ol class="use-steps">
+            <li><span>1</span><div><strong>Inspect</strong><p>Read the reference brief, source fixture, bounded finding, reviewer policy, and rubric together.</p></div></li>
+            <li><span>2</span><div><strong>Serve locally</strong><p>Open this dependency-free reference page from a local static server.</p></div></li>
+            <li><span>3</span><div><strong>Adapt</strong><p>Replace the fictional records with your declared inputs, expert roles, and release policy.</p></div></li>
+          </ol>
+        </div>
+        <div class="terminal" aria-label="Commands to run the examples">
+          <div class="terminal-bar"><span></span><span></span><span></span><small>local shell</small></div>
+          <pre><code><span class="terminal-comment"># clone the three public packages as siblings</span>
+git clone --branch v0.4.0 --depth 1 https://github.com/categori-se/studio-contracts.git
+git clone --branch v0.4.0 --depth 1 https://github.com/categori-se/studio-core.git
+git clone --branch v0.4.0 --depth 1 https://github.com/categori-se/studio-examples.git
+
+<span class="terminal-comment"># link exact local sources; packages are not on npm yet</span>
+cd studio-core
+npm install --no-save --package-lock=false ../studio-contracts
+npm test
+
+cd ../studio-examples
+npm install --no-save --package-lock=false ../studio-contracts ../studio-core
+npm test
+node local-demo/demo.mjs
+node ../studio-core/bin/studio.js inspect portfolio/workspace.yaml
+node portfolio/no-content-telemetry.mjs
+
+<span class="terminal-comment"># this page itself has no runtime dependencies</span>
+python3 -m http.server 8000 --directory docs</code></pre>
+        </div>
+      </section>
+
+      <section class="repositories" aria-labelledby="repositories-title">
+        <div class="section-heading narrow-heading">
+          <div>
+            <p class="eyebrow">Public building blocks</p>
+            <h2 id="repositories-title">Small packages with explicit responsibilities</h2>
+          </div>
+          <p>Each repository is independently readable and released under Apache-2.0.</p>
+        </div>
+        <div class="repo-grid">
+          <a class="repo-card" href="https://github.com/categori-se/studio-contracts">
+            <span class="repo-index">01 / Contracts</span>
+            <h3>studio-contracts</h3>
+            <p>Provider-neutral schemas and validators for applications, projects, workspaces, document evaluation, expert decisions, release records, and GenAI telemetry.</p>
+            <span class="repo-link">Explore contracts <b aria-hidden="true">↗</b></span>
+          </a>
+          <a class="repo-card" href="https://github.com/categori-se/studio-core">
+            <span class="repo-index">02 / Local runtime</span>
+            <h3>studio-core</h3>
+            <p>A local-first UI shell, CLI, project-file loader, plugin SDK, and deterministic mock provider for composing your own workspace.</p>
+            <span class="repo-link">Explore core <b aria-hidden="true">↗</b></span>
+          </a>
+          <a class="repo-card" href="https://github.com/categori-se/studio-examples">
+            <span class="repo-index">03 / Reference use</span>
+            <h3>studio-examples</h3>
+            <p>Safe digest-linked evidence chains, no-content telemetry, local demonstrations, and low-idle-cost static deployment infrastructure with no account-specific settings.</p>
+            <span class="repo-link">Explore examples <b aria-hidden="true">↗</b></span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <a class="brand footer-brand" href="#top">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span><strong>Studio</strong><small>Governance you can inspect</small></span>
+        </a>
+        <p>A sector-neutral, dependency-free workflow demonstrated with clearly labeled synthetic records.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <a href="https://github.com/categori-se/studio-contracts">Contracts</a>
+        <a href="https://github.com/categori-se/studio-core">Core</a>
+        <a href="https://github.com/categori-se/studio-examples">Examples</a>
+        <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</a>
+      </nav>
+    </footer>
+  </body>
+</html>

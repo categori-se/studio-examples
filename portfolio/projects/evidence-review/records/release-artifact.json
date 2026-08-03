@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "project_id": "evidence-review",
+  "commit_sha": "72ac91d4c7f2e12a3bdc1c844580cac82de9c341",
+  "review_decision": {
+    "uri": "https://example.invalid/studio-examples/evidence-review/review-decision.json",
+    "sha256": "1190cb08df898a1cddbfba39b5e2eb86db1c5f2e8630c6324c83b33e74e88403"
+  },
+  "finding_ids": [
+    "qualified-service-shortlist"
+  ],
+  "limitations": [
+    "River Ward remains qualified by a missing accessibility inspection.",
+    "The record does not authorize prioritization, funding, production deployment, or source mutation."
+  ]
+}

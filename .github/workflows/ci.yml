@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out Studio Examples
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: studio-examples
+
+      - name: Check out exact Contracts release
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: categori-se/studio-contracts
+          ref: v0.4.0
+          path: studio-contracts
+
+      - name: Check out exact Core release
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: categori-se/studio-core
+          ref: v0.4.0
+          path: studio-core
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+
+      - name: Scan complete public tree
+        run: npm run check:public-tree --prefix studio-examples
+
+      - name: Verify release-bound demo provenance
+        run: npm run check:demo-release --prefix studio-examples
+
+      - name: Prepare exact local dependency graph
+        run: >-
+          node -e 'const fs = require("node:fs");
+          fs.writeFileSync("package.json",
+          JSON.stringify({private: true,
+          workspaces: ["studio-contracts", "studio-core", "studio-examples"]}))'
+
+      - name: Install dependencies
+        run: npm install --ignore-scripts
+
+      - name: Test Studio Examples
+        run: npm test --workspace @categori/studio-examples

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "project_id": "evidence-review",
+  "documents": [
+    {
+      "id": "synthetic-service-record",
+      "uri": "https://example.invalid/studio-examples/evidence-review/public-guidance.md",
+      "media_type": "text/markdown",
+      "version_id": "studio-examples-v0.4.0",
+      "etag": "sha256-95ac4d24405051f292a072744e3e2304990360c427b6aa01d9067123a70a84fe",
+      "sha256": "95ac4d24405051f292a072744e3e2304990360c427b6aa01d9067123a70a84fe"
+    }
+  ]
+}
