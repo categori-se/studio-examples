@@ -19,12 +19,12 @@ The browser demo and portable portfolio make every stage inspectable:
 
 This is the niche the examples are designed to test: evidence-to-decision-to-release continuity for small expert teams doing evidence-sensitive research, assurance, analysis, and client work. It is not a general-purpose chatbot, coding agent, data-pipeline builder, or automated compliance engine. The reusable product is the governance pattern, not the sector vocabulary.
 
-## Demo status
+## Live demo
 
-**Live-demo status:** not published from this repository yet. [`docs/index.html`](./docs/index.html) is the complete dependency-free demo source and can be served locally in one command. This tree is versioned as `0.4.0`; [`demo-provenance.json`](./demo-provenance.json) binds every browser asset to the immutable `v0.4.0` source path, and repository tests reject file or source-link drift. Until an official Pages or managed URL is published here, use the tagged source or local server rather than an unofficial deployment.
+**[Explore the read-only public demo](https://categori-se.github.io/studio-examples/).** It was deployed by the repository's workflow from the immutable `v0.4.0` release. The workflow required the protected tag and supplied SHA to resolve to the same commit in public `main`, then verified every served asset against [`demo-provenance.json`](./demo-provenance.json).
 
-- [Browse the current public example source](https://github.com/categori-se/studio-examples)
-- [Inspect the deterministic v0.4.0 local demo](https://github.com/categori-se/studio-examples/tree/v0.4.0/local-demo)
+- [Inspect the exact v0.4.0 release source](https://github.com/categori-se/studio-examples/tree/v0.4.0)
+- [Run the deterministic v0.4.0 local demo](https://github.com/categori-se/studio-examples/tree/v0.4.0/local-demo)
 - Browse [`portfolio/`](./portfolio/) for the version 0.4 service-access example and its digest-linked evidence chain
 
 The hosted route is intentionally static and synthetic. It cannot start models or compute, upload content, read private repositories, create pull requests, approve decisions, publish releases, or deploy infrastructure. The production build rejects an expanded file set, network APIs, externally hosted runtime assets, private infrastructure identifiers, and a package larger than 128 KiB.
