@@ -1,30 +1,135 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Placeholder static hosting template for a self-hosted studio shell
+Description: Low-idle-cost private-S3 and CloudFront hosting for the static Studio reference demo
 
 Parameters:
   SiteBucketName:
     Type: String
-    Description: Globally unique bucket name selected by the deployer
+    Default: ''
+    Description: Optional globally unique bucket name; leave blank for a stack-generated name that is easier to reuse
+  IndexDocument:
+    Type: String
+    Default: index.html
+    AllowedPattern: '^[A-Za-z0-9._-]+$'
+    Description: Static entry document uploaded by the deployer
+
+Conditions:
+  UseNamedBucket: !Not [!Equals [!Ref SiteBucketName, '']]
 
 Resources:
   SiteBucket:
     Type: AWS::S3::Bucket
-    DeletionPolicy: Retain
+    DeletionPolicy: Delete
     UpdateReplacePolicy: Retain
     Properties:
-      BucketName: !Ref SiteBucketName
+      BucketName: !If [UseNamedBucket, !Ref SiteBucketName, !Ref AWS::NoValue]
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
               SSEAlgorithm: AES256
+      LifecycleConfiguration:
+        Rules:
+          - Id: AbortIncompleteUploads
+            Status: Enabled
+            AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 1
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
       PublicAccessBlockConfiguration:
         BlockPublicAcls: true
         BlockPublicPolicy: true
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
-      VersioningConfiguration:
-        Status: Enabled
+
+  SiteOriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub '${AWS::StackName}-site-oac'
+        Description: SigV4 access from the exact distribution to the private site bucket
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  SiteResponseHeaders:
+    Type: AWS::CloudFront::ResponseHeadersPolicy
+    Properties:
+      ResponseHeadersPolicyConfig:
+        Name: !Sub '${AWS::StackName}-security-headers'
+        Comment: Browser boundaries for the dependency-free static reference demo
+        SecurityHeadersConfig:
+          ContentSecurityPolicy:
+            ContentSecurityPolicy: "default-src 'self'; connect-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'none'; media-src 'none'; object-src 'none'; worker-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
+            Override: true
+          ContentTypeOptions:
+            Override: true
+          FrameOptions:
+            FrameOption: DENY
+            Override: true
+          ReferrerPolicy:
+            ReferrerPolicy: no-referrer
+            Override: true
+          StrictTransportSecurity:
+            AccessControlMaxAgeSec: 63072000
+            IncludeSubdomains: true
+            Preload: true
+            Override: true
+          XSSProtection:
+            Protection: true
+            ModeBlock: true
+            Override: true
+
+  SiteDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Comment: !Sub '${AWS::StackName} static Studio reference demo'
+        DefaultCacheBehavior:
+          AllowedMethods: [GET, HEAD, OPTIONS]
+          CachedMethods: [GET, HEAD, OPTIONS]
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+          Compress: true
+          ResponseHeadersPolicyId: !Ref SiteResponseHeaders
+          TargetOriginId: site-bucket
+          ViewerProtocolPolicy: redirect-to-https
+        DefaultRootObject: !Ref IndexDocument
+        Enabled: true
+        HttpVersion: http2and3
+        IPV6Enabled: true
+        Origins:
+          - DomainName: !GetAtt SiteBucket.RegionalDomainName
+            Id: site-bucket
+            OriginAccessControlId: !GetAtt SiteOriginAccessControl.Id
+            S3OriginConfig: {}
+        PriceClass: PriceClass_100
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: true
+          MinimumProtocolVersion: TLSv1.2_2021
+
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: AllowExactCloudFrontDistributionRead
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:GetObject
+            Resource: !Sub '${SiteBucket.Arn}/*'
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub 'arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${SiteDistribution}'
 
 Outputs:
   SiteBucketName:
+    Description: Upload the reviewed static files here; the bucket has no public access
     Value: !Ref SiteBucket
+  SiteDistributionId:
+    Description: Invalidate this distribution after replacing a reviewed release
+    Value: !Ref SiteDistribution
+  SiteUrl:
+    Description: CloudFront URL using its default certificate; add your own DNS/certificate in a derived production stack
+    Value: !Sub 'https://${SiteDistribution.DomainName}'

@@ -1,0 +1,7 @@
+schemaVersion: 1
+id: evidence-portfolio
+name: "Reference portfolio: synthetic service-access evidence review"
+summary: "One fictional planning example demonstrating a sector-neutral evidence-to-decision and release pattern."
+projects:
+  - id: evidence-review
+    path: projects/evidence-review/project.yaml

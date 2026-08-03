@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "223e4567-e89b-42d3-a456-4266bb1740ef",
+  "job_id": "123e4567-e89b-42d3-a456-4266aa1740ef",
+  "evaluation_id": "123e4567-e89b-42d3-a456-4266aa1740ef",
+  "project_id": "evidence-review",
+  "outcome": "approved",
+  "summary": "A fictional qualified reviewer checked both cited passages and approved the bounded shortlist with the accessibility qualification retained.",
+  "result_uri": "https://example.invalid/studio-examples/evidence-review/evaluation-result.json",
+  "result_sha256": "dd9bc6dcbe3c0adb866c9b284d3cacf420d163f3f016a0aec83487d12adf044e",
+  "result_version_id": "studio-examples-v0.4.0",
+  "result_etag": "sha256-dd9bc6dcbe3c0adb866c9b284d3cacf420d163f3f016a0aec83487d12adf044e",
+  "machine_outcome": "passed",
+  "actor": "synthetic-service-planning-reviewer",
+  "actor_subject": "synthetic-service-planning-reviewer",
+  "actor_label": "Fictional service planning reviewer",
+  "actor_groups": [
+    "DomainReviewer"
+  ],
+  "created_at": 1785607200,
+  "effect": "human_evaluation_review",
+  "deploy_authorized": false,
+  "trading_authorized": false,
+  "production_deployed": false,
+  "source_mutated": false
+}

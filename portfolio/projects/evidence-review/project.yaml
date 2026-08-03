@@ -1,0 +1,59 @@
+schemaVersion: 1
+id: evidence-review
+name: Service access evidence review
+summary: Demonstrates a portable brief-to-handoff record using a fictional public-service planning scenario.
+repository: example/evidence-review
+defaultBranch: main
+dataSensitivity: public
+commands:
+  checks:
+    - node --test
+modelPolicy:
+  mode: local_only
+owners:
+  - id: research-lead
+    role: Service planning reviewer
+purpose:
+  problem: Determine whether the fictional planning record supports a bounded service-location field-review shortlist.
+  audiences:
+    - Service planning reviewers
+    - Synthetic regional committee
+  permittedClaims:
+    - id: qualified-service-shortlist
+      statement: The fictional record supports advancing North District to field review while River Ward remains qualified by an accessibility evidence gap.
+      evidenceRefs:
+        - synthetic-service-record
+resources:
+  - id: synthetic-service-record
+    kind: document
+    uri: fixtures/public-guidance.md
+    role: Fictional supporting evidence
+    sensitivity: public
+agentProfiles:
+  - id: evidence-reviewer
+    instructionsPath: instructions/reviewer.md
+    allowedTools:
+      - read_file
+    acceptanceCriteria:
+      - Cite only declared evidence resources.
+      - Do not claim that a passing automated score is a human approval.
+      - Identify an evidence gap without making the final prioritization decision.
+evaluationSuites:
+  - id: evidence-quality
+    rubricPath: rubrics/evidence-quality.yaml
+    requiredFor:
+      - candidate
+      - release
+approvalPolicy:
+  requiredFor:
+    - release
+    - rollback
+  roles:
+    - domain-reviewer
+deploymentTargets:
+  - id: local-preview
+    kind: static-site
+    environment: local
+    releaseManifestUri: records/release-record.json
+costCenter: synthetic-demo
+riskLevel: moderate

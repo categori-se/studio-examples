@@ -1,0 +1,20 @@
+schemaVersion: 1
+id: evidence-quality
+name: Service-access evidence quality
+version: 1.0.0
+description: A synthetic rubric for checking finding traceability and scope discipline in a service-planning brief.
+criteria:
+  - id: finding-traceability
+    label: Finding traceability
+    description: Every material planning finding identifies a declared evidence resource.
+    weight: 0.6
+    minScore: 0
+    maxScore: 5
+  - id: scope-discipline
+    label: Scope discipline
+    description: The finding identifies an evidence gap without turning it into an unsupported prioritization decision.
+    weight: 0.4
+    minScore: 0
+    maxScore: 5
+passingScore: 4
+humanReviewRequired: true

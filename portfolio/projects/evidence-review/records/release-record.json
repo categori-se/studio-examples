@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 2,
+  "projectId": "evidence-review",
+  "repository": "example/evidence-review",
+  "targetId": "local-preview",
+  "environment": "local",
+  "commitSha": "72ac91d4c7f2e12a3bdc1c844580cac82de9c341",
+  "artifact": {
+    "uri": "https://example.invalid/studio-examples/evidence-review/release-artifact.json",
+    "digest": "sha256:212d3db4d6b22f0be1a9e562357af133730358749f378c294ddd329a38f75a5b"
+  },
+  "workflow": {
+    "provider": "github-actions",
+    "runId": "synthetic-run-207",
+    "url": "https://example.invalid/actions/runs/synthetic-run-207"
+  },
+  "actor": "synthetic-release-bot",
+  "operation": "DEPLOY",
+  "result": "SUCCEEDED",
+  "deployedAt": "2026-08-01T18:12:00Z",
+  "deployedUrl": "https://example.invalid/studio-examples/evidence-review",
+  "verification": {
+    "method": "release-manifest",
+    "url": "https://example.invalid/studio-examples/evidence-review/release-artifact.json",
+    "verifiedAt": "2026-08-01T18:13:00Z"
+  }
+}

@@ -1,16 +1,18 @@
 {
   "name": "@categori/studio-examples",
-  "version": "0.3.0",
-  "description": "Local demos and placeholder deployment templates for Studio Core",
+  "version": "0.4.0",
+  "description": "Sector-neutral governed expert-work demos and safe deployment placeholders",
   "private": true,
   "type": "module",
   "license": "Apache-2.0",
   "scripts": {
+    "check:public-tree": "node scripts/check-public-tree.mjs",
+    "check:demo-release": "node scripts/verify-demo-assets.mjs --tag v0.4.0",
     "test": "node --test test/*.test.js"
   },
   "dependencies": {
-    "@categori/studio-contracts": "0.3.0",
-    "@categori/studio-core": "0.3.0"
+    "@categori/studio-contracts": "0.4.0",
+    "@categori/studio-core": "0.4.0"
   },
   "engines": {
     "node": ">=24"
